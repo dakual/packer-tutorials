@@ -1,6 +1,6 @@
 variable "ami_id" {
   type    = string
-  default = "ami-08970fb2e5767e3b8"
+  default = "ami-0e7e134863fac4946"
 }
 
 variable "app_name" {

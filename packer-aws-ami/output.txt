@@ -1,0 +1,901 @@
+[1;32mamazon-ebs.httpd: output will be in this color.[0m
+
+[1;32m==> amazon-ebs.httpd: Prevalidating any provided VPC information[0m
+[1;32m==> amazon-ebs.httpd: Prevalidating AMI Name: my-image-httpd[0m
+[0;32m    amazon-ebs.httpd: Found Image ID: ami-0e7e134863fac4946[0m
+[1;32m==> amazon-ebs.httpd: Creating temporary keypair: packer_632719d1-e393-b05a-5fe5-f9514a6ba6ab[0m
+[1;32m==> amazon-ebs.httpd: Creating temporary security group for this instance: packer_632719d3-defb-4752-bb90-5175d5df8eb4[0m
+[1;32m==> amazon-ebs.httpd: Authorizing access to port 22 from [0.0.0.0/0] in the temporary security groups...[0m
+[1;32m==> amazon-ebs.httpd: Launching a source AWS instance...[0m
+[0;32m    amazon-ebs.httpd: Instance ID: i-08d360fa1518a562c[0m
+[1;32m==> amazon-ebs.httpd: Waiting for instance (i-08d360fa1518a562c) to become ready...[0m
+[1;32m==> amazon-ebs.httpd: Using SSH communicator to connect: 18.197.209.60[0m
+[1;32m==> amazon-ebs.httpd: Waiting for SSH to become available...[0m
+[1;32m==> amazon-ebs.httpd: Connected to SSH![0m
+[1;32m==> amazon-ebs.httpd: Provisioning with shell script: script/install-httpd.sh[0m
+[0;32m    amazon-ebs.httpd: Updating Subscription Management repositories.[0m
+[0;32m    amazon-ebs.httpd: Unable to read consumer identity[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: This system is not registered with an entitlement server. You can use subscription-manager to register.[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: Red Hat Enterprise Linux 8 for x86_64 - AppStre  31 MB/s |  46 MB     00:01[0m
+[0;32m    amazon-ebs.httpd: Red Hat Enterprise Linux 8 for x86_64 - BaseOS   62 MB/s |  52 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: Red Hat Ansible Engine 2 for RHEL 8 (RPMs) from  19 MB/s | 2.5 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: RHUI Client Configuration Server 8               33 kB/s | 2.3 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: Dependencies resolved.[0m
+[0;32m    amazon-ebs.httpd: ====================================================================================================================[0m
+[0;32m    amazon-ebs.httpd:  Package                      Arch    Version                                     Repository                    Size[0m
+[0;32m    amazon-ebs.httpd: ====================================================================================================================[0m
+[0;32m    amazon-ebs.httpd: Installing:[0m
+[0;32m    amazon-ebs.httpd:  kernel                       x86_64  4.18.0-372.26.1.el8_6                       rhel-8-baseos-rhui-rpms      8.1 M[0m
+[0;32m    amazon-ebs.httpd:  kernel-core                  x86_64  4.18.0-372.26.1.el8_6                       rhel-8-baseos-rhui-rpms       39 M[0m
+[0;32m    amazon-ebs.httpd:  kernel-modules               x86_64  4.18.0-372.26.1.el8_6                       rhel-8-baseos-rhui-rpms       32 M[0m
+[0;32m    amazon-ebs.httpd: Upgrading:[0m
+[0;32m    amazon-ebs.httpd:  NetworkManager               x86_64  1:1.36.0-7.el8_6                            rhel-8-baseos-rhui-rpms      2.3 M[0m
+[0;32m    amazon-ebs.httpd:  NetworkManager-cloud-setup   x86_64  1:1.36.0-7.el8_6                            rhel-8-appstream-rhui-rpms   190 k[0m
+[0;32m    amazon-ebs.httpd:  NetworkManager-libnm         x86_64  1:1.36.0-7.el8_6                            rhel-8-baseos-rhui-rpms      1.8 M[0m
+[0;32m    amazon-ebs.httpd:  NetworkManager-team          x86_64  1:1.36.0-7.el8_6                            rhel-8-baseos-rhui-rpms      153 k[0m
+[0;32m    amazon-ebs.httpd:  NetworkManager-tui           x86_64  1:1.36.0-7.el8_6                            rhel-8-baseos-rhui-rpms      346 k[0m
+[0;32m    amazon-ebs.httpd:  bash                         x86_64  4.4.20-4.el8_6                              rhel-8-baseos-rhui-rpms      1.5 M[0m
+[0;32m    amazon-ebs.httpd:  ca-certificates              noarch  2022.2.54-80.2.el8_6                        rhel-8-baseos-rhui-rpms      921 k[0m
+[0;32m    amazon-ebs.httpd:  cloud-init                   noarch  21.1-15.el8_6.3                             rhel-8-appstream-rhui-rpms   1.1 M[0m
+[0;32m    amazon-ebs.httpd:  curl                         x86_64  7.61.1-22.el8_6.4                           rhel-8-baseos-rhui-rpms      352 k[0m
+[0;32m    amazon-ebs.httpd:  dbus                         x86_64  1:1.12.8-18.el8_6.1                         rhel-8-baseos-rhui-rpms       42 k[0m
+[0;32m    amazon-ebs.httpd:  dbus-common                  noarch  1:1.12.8-18.el8_6.1                         rhel-8-baseos-rhui-rpms       46 k[0m
+[0;32m    amazon-ebs.httpd:  dbus-daemon                  x86_64  1:1.12.8-18.el8_6.1                         rhel-8-baseos-rhui-rpms      240 k[0m
+[0;32m    amazon-ebs.httpd:  dbus-libs                    x86_64  1:1.12.8-18.el8_6.1                         rhel-8-baseos-rhui-rpms      184 k[0m
+[0;32m    amazon-ebs.httpd:  dbus-tools                   x86_64  1:1.12.8-18.el8_6.1                         rhel-8-baseos-rhui-rpms       86 k[0m
+[0;32m    amazon-ebs.httpd:  device-mapper                x86_64  8:1.02.181-3.el8_6.2                        rhel-8-baseos-rhui-rpms      377 k[0m
+[0;32m    amazon-ebs.httpd:  device-mapper-libs           x86_64  8:1.02.181-3.el8_6.2                        rhel-8-baseos-rhui-rpms      410 k[0m
+[0;32m    amazon-ebs.httpd:  dracut                       x86_64  049-202.git20220511.el8_6                   rhel-8-baseos-rhui-rpms      376 k[0m
+[0;32m    amazon-ebs.httpd:  dracut-config-generic        x86_64  049-202.git20220511.el8_6                   rhel-8-baseos-rhui-rpms       60 k[0m
+[0;32m    amazon-ebs.httpd:  dracut-config-rescue         x86_64  049-202.git20220511.el8_6                   rhel-8-baseos-rhui-rpms       61 k[0m
+[0;32m    amazon-ebs.httpd:  dracut-network               x86_64  049-202.git20220511.el8_6                   rhel-8-baseos-rhui-rpms      109 k[0m
+[0;32m    amazon-ebs.httpd:  dracut-squash                x86_64  049-202.git20220511.el8_6                   rhel-8-baseos-rhui-rpms       62 k[0m
+[0;32m    amazon-ebs.httpd:  expat                        x86_64  2.2.5-8.el8_6.2                             rhel-8-baseos-rhui-rpms      113 k[0m
+[0;32m    amazon-ebs.httpd:  glibc                        x86_64  2.28-189.5.el8_6                            rhel-8-baseos-rhui-rpms      2.2 M[0m
+[0;32m    amazon-ebs.httpd:  glibc-all-langpacks          x86_64  2.28-189.5.el8_6                            rhel-8-baseos-rhui-rpms       25 M[0m
+[0;32m    amazon-ebs.httpd:  glibc-common                 x86_64  2.28-189.5.el8_6                            rhel-8-baseos-rhui-rpms      1.3 M[0m
+[0;32m    amazon-ebs.httpd:  glibc-gconv-extra            x86_64  2.28-189.5.el8_6                            rhel-8-baseos-rhui-rpms      1.5 M[0m
+[0;32m    amazon-ebs.httpd:  glibc-langpack-en            x86_64  2.28-189.5.el8_6                            rhel-8-baseos-rhui-rpms      834 k[0m
+[0;32m    amazon-ebs.httpd:  gnupg2                       x86_64  2.2.20-3.el8_6                              rhel-8-baseos-rhui-rpms      2.4 M[0m
+[0;32m    amazon-ebs.httpd:  gnupg2-smime                 x86_64  2.2.20-3.el8_6                              rhel-8-baseos-rhui-rpms      283 k[0m
+[0;32m    amazon-ebs.httpd:  grub2-common                 noarch  1:2.02-123.el8_6.8                          rhel-8-baseos-rhui-rpms      893 k[0m
+[0;32m    amazon-ebs.httpd:  grub2-pc                     x86_64  1:2.02-123.el8_6.8                          rhel-8-baseos-rhui-rpms       44 k[0m
+[0;32m    amazon-ebs.httpd:  grub2-pc-modules             noarch  1:2.02-123.el8_6.8                          rhel-8-baseos-rhui-rpms      920 k[0m
+[0;32m    amazon-ebs.httpd:  grub2-tools                  x86_64  1:2.02-123.el8_6.8                          rhel-8-baseos-rhui-rpms      2.0 M[0m
+[0;32m    amazon-ebs.httpd:  grub2-tools-extra            x86_64  1:2.02-123.el8_6.8                          rhel-8-baseos-rhui-rpms      1.1 M[0m
+[0;32m    amazon-ebs.httpd:  grub2-tools-minimal          x86_64  1:2.02-123.el8_6.8                          rhel-8-baseos-rhui-rpms      211 k[0m
+[0;32m    amazon-ebs.httpd:  initscripts                  x86_64  10.00.17-1.el8_6.2                          rhel-8-baseos-rhui-rpms      340 k[0m
+[0;32m    amazon-ebs.httpd:  insights-client              noarch  3.1.7-7.el8_6                               rhel-8-appstream-rhui-rpms   1.2 M[0m
+[0;32m    amazon-ebs.httpd:  iproute                      x86_64  5.15.0-4.el8_6.1                            rhel-8-baseos-rhui-rpms      798 k[0m
+[0;32m    amazon-ebs.httpd:  kernel-tools                 x86_64  4.18.0-372.26.1.el8_6                       rhel-8-baseos-rhui-rpms      8.3 M[0m
+[0;32m    amazon-ebs.httpd:  kernel-tools-libs            x86_64  4.18.0-372.26.1.el8_6                       rhel-8-baseos-rhui-rpms      8.1 M[0m
+[0;32m    amazon-ebs.httpd:  kpartx                       x86_64  0.8.4-22.el8_6.1                            rhel-8-baseos-rhui-rpms      115 k[0m
+[0;32m    amazon-ebs.httpd:  libcurl                      x86_64  7.61.1-22.el8_6.4                           rhel-8-baseos-rhui-rpms      302 k[0m
+[0;32m    amazon-ebs.httpd:  libdnf                       x86_64  0.63.0-8.2.el8_6                            rhel-8-baseos-rhui-rpms      706 k[0m
+[0;32m    amazon-ebs.httpd:  libgcc                       x86_64  8.5.0-10.1.el8_6                            rhel-8-baseos-rhui-rpms       80 k[0m
+[0;32m    amazon-ebs.httpd:  libgcrypt                    x86_64  1.8.5-7.el8_6                               rhel-8-baseos-rhui-rpms      463 k[0m
+[0;32m    amazon-ebs.httpd:  libgomp                      x86_64  8.5.0-10.1.el8_6                            rhel-8-baseos-rhui-rpms      207 k[0m
+[0;32m    amazon-ebs.httpd:  libsss_autofs                x86_64  2.6.2-4.el8_6.1                             rhel-8-baseos-rhui-rpms      121 k[0m
+[0;32m    amazon-ebs.httpd:  libsss_certmap               x86_64  2.6.2-4.el8_6.1                             rhel-8-baseos-rhui-rpms      165 k[0m
+[0;32m    amazon-ebs.httpd:  libsss_idmap                 x86_64  2.6.2-4.el8_6.1                             rhel-8-baseos-rhui-rpms      124 k[0m
+[0;32m    amazon-ebs.httpd:  libsss_nss_idmap             x86_64  2.6.2-4.el8_6.1                             rhel-8-baseos-rhui-rpms      131 k[0m
+[0;32m    amazon-ebs.httpd:  libsss_sudo                  x86_64  2.6.2-4.el8_6.1                             rhel-8-baseos-rhui-rpms      120 k[0m
+[0;32m    amazon-ebs.httpd:  libstdc++                    x86_64  8.5.0-10.1.el8_6                            rhel-8-baseos-rhui-rpms      454 k[0m
+[0;32m    amazon-ebs.httpd:  libxml2                      x86_64  2.9.7-13.el8_6.1                            rhel-8-baseos-rhui-rpms      696 k[0m
+[0;32m    amazon-ebs.httpd:  microcode_ctl                x86_64  4:20220207-1.20220510.1.el8_6               rhel-8-baseos-rhui-rpms      5.8 M[0m
+[0;32m    amazon-ebs.httpd:  openssl                      x86_64  1:1.1.1k-7.el8_6                            rhel-8-baseos-rhui-rpms      709 k[0m
+[0;32m    amazon-ebs.httpd:  openssl-libs                 x86_64  1:1.1.1k-7.el8_6                            rhel-8-baseos-rhui-rpms      1.5 M[0m
+[0;32m    amazon-ebs.httpd:  pam                          x86_64  1.3.1-16.el8_6.1                            rhel-8-baseos-rhui-rpms      740 k[0m
+[0;32m    amazon-ebs.httpd:  pcre2                        x86_64  10.32-3.el8_6                               rhel-8-baseos-rhui-rpms      247 k[0m
+[0;32m    amazon-ebs.httpd:  platform-python              x86_64  3.6.8-47.el8_6                              rhel-8-baseos-rhui-rpms       86 k[0m
+[0;32m    amazon-ebs.httpd:  python3-hawkey               x86_64  0.63.0-8.2.el8_6                            rhel-8-baseos-rhui-rpms      117 k[0m
+[0;32m    amazon-ebs.httpd:  python3-libdnf               x86_64  0.63.0-8.2.el8_6                            rhel-8-baseos-rhui-rpms      778 k[0m
+[0;32m    amazon-ebs.httpd:  python3-libs                 x86_64  3.6.8-47.el8_6                              rhel-8-baseos-rhui-rpms      7.8 M[0m
+[0;32m    amazon-ebs.httpd:  python3-libxml2              x86_64  2.9.7-13.el8_6.1                            rhel-8-baseos-rhui-rpms      237 k[0m
+[0;32m    amazon-ebs.httpd:  python3-perf                 x86_64  4.18.0-372.26.1.el8_6                       rhel-8-baseos-rhui-rpms      8.2 M[0m
+[0;32m    amazon-ebs.httpd:  qemu-guest-agent             x86_64  15:6.2.0-11.module+el8.6.0+16516+f8cbd5fe.5 rhel-8-appstream-rhui-rpms   344 k[0m
+[0;32m    amazon-ebs.httpd:  rh-amazon-rhui-client        noarch  4.0.4-1.el8                                 rhui-client-config-server-8   39 k[0m
+[0;32m    amazon-ebs.httpd:  rhc                          x86_64  1:0.2.1-9.el8_6                             rhel-8-appstream-rhui-rpms   8.7 M[0m
+[0;32m    amazon-ebs.httpd:  rsync                        x86_64  3.1.3-14.el8_6.3                            rhel-8-baseos-rhui-rpms      409 k[0m
+[0;32m    amazon-ebs.httpd:  rsyslog                      x86_64  8.2102.0-7.el8_6.1                          rhel-8-appstream-rhui-rpms   753 k[0m
+[0;32m    amazon-ebs.httpd:  selinux-policy               noarch  3.14.3-95.el8_6.4                           rhel-8-baseos-rhui-rpms      648 k[0m
+[0;32m    amazon-ebs.httpd:  selinux-policy-targeted      noarch  3.14.3-95.el8_6.4                           rhel-8-baseos-rhui-rpms       15 M[0m
+[0;32m    amazon-ebs.httpd:  sssd-client                  x86_64  2.6.2-4.el8_6.1                             rhel-8-baseos-rhui-rpms      227 k[0m
+[0;32m    amazon-ebs.httpd:  sssd-common                  x86_64  2.6.2-4.el8_6.1                             rhel-8-baseos-rhui-rpms      1.6 M[0m
+[0;32m    amazon-ebs.httpd:  sssd-kcm                     x86_64  2.6.2-4.el8_6.1                             rhel-8-baseos-rhui-rpms      253 k[0m
+[0;32m    amazon-ebs.httpd:  sssd-nfs-idmap               x86_64  2.6.2-4.el8_6.1                             rhel-8-baseos-rhui-rpms      121 k[0m
+[0;32m    amazon-ebs.httpd:  systemd                      x86_64  239-58.el8_6.7                              rhel-8-baseos-rhui-rpms      3.6 M[0m
+[0;32m    amazon-ebs.httpd:  systemd-libs                 x86_64  239-58.el8_6.7                              rhel-8-baseos-rhui-rpms      1.1 M[0m
+[0;32m    amazon-ebs.httpd:  systemd-pam                  x86_64  239-58.el8_6.7                              rhel-8-baseos-rhui-rpms      484 k[0m
+[0;32m    amazon-ebs.httpd:  systemd-udev                 x86_64  239-58.el8_6.7                              rhel-8-baseos-rhui-rpms      1.6 M[0m
+[0;32m    amazon-ebs.httpd:  tuned                        noarch  2.18.0-2.el8_6.1                            rhel-8-baseos-rhui-rpms      316 k[0m
+[0;32m    amazon-ebs.httpd:  tzdata                       noarch  2022c-1.el8                                 rhel-8-baseos-rhui-rpms      471 k[0m
+[0;32m    amazon-ebs.httpd:  vim-minimal                  x86_64  2:8.0.1763-19.el8_6.4                       rhel-8-baseos-rhui-rpms      575 k[0m
+[0;32m    amazon-ebs.httpd:  xz                           x86_64  5.2.4-4.el8_6                               rhel-8-baseos-rhui-rpms      153 k[0m
+[0;32m    amazon-ebs.httpd:  xz-libs                      x86_64  5.2.4-4.el8_6                               rhel-8-baseos-rhui-rpms       94 k[0m
+[0;32m    amazon-ebs.httpd: Installing dependencies:[0m
+[0;32m    amazon-ebs.httpd:  grub2-tools-efi              x86_64  1:2.02-123.el8_6.8                          rhel-8-baseos-rhui-rpms      477 k[0m
+[0;32m    amazon-ebs.httpd: Enabling module streams:[0m
+[0;32m    amazon-ebs.httpd:  virt                                 rhel[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: Transaction Summary[0m
+[0;32m    amazon-ebs.httpd: ====================================================================================================================[0m
+[0;32m    amazon-ebs.httpd: Install   4 Packages[0m
+[0;32m    amazon-ebs.httpd: Upgrade  84 Packages[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: Total download size: 214 M[0m
+[0;32m    amazon-ebs.httpd: Downloading Packages:[0m
+[0;32m    amazon-ebs.httpd: (1/88): grub2-tools-efi-2.02-123.el8_6.8.x86_64 9.2 MB/s | 477 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (2/88): kernel-4.18.0-372.26.1.el8_6.x86_64.rpm  25 MB/s | 8.1 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (3/88): rhc-0.2.1-9.el8_6.x86_64.rpm             24 MB/s | 8.7 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (4/88): cloud-init-21.1-15.el8_6.3.noarch.rpm    18 MB/s | 1.1 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (5/88): NetworkManager-cloud-setup-1.36.0-7.el8 9.0 MB/s | 190 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (6/88): rsyslog-8.2102.0-7.el8_6.1.x86_64.rpm    14 MB/s | 753 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (7/88): insights-client-3.1.7-7.el8_6.noarch.rp  17 MB/s | 1.2 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (8/88): qemu-guest-agent-6.2.0-11.module+el8.6.  12 MB/s | 344 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (9/88): glibc-2.28-189.5.el8_6.x86_64.rpm        21 MB/s | 2.2 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (10/88): glibc-common-2.28-189.5.el8_6.x86_64.r  21 MB/s | 1.3 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (11/88): kernel-modules-4.18.0-372.26.1.el8_6.x  25 MB/s |  32 MB     00:01[0m
+[0;32m    amazon-ebs.httpd: (12/88): xz-libs-5.2.4-4.el8_6.x86_64.rpm       6.5 MB/s |  94 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (13/88): glibc-langpack-en-2.28-189.5.el8_6.x86 3.3 MB/s | 834 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (14/88): xz-5.2.4-4.el8_6.x86_64.rpm            7.2 MB/s | 153 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (15/88): kernel-core-4.18.0-372.26.1.el8_6.x86_  24 MB/s |  39 MB     00:01[0m
+[0;32m    amazon-ebs.httpd: (16/88): grub2-pc-2.02-123.el8_6.8.x86_64.rpm   3.2 MB/s |  44 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (17/88): dbus-libs-1.12.8-18.el8_6.1.x86_64.rpm 8.7 MB/s | 184 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (18/88): curl-7.61.1-22.el8_6.4.x86_64.rpm       13 MB/s | 352 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (19/88): dbus-tools-1.12.8-18.el8_6.1.x86_64.rp 3.7 MB/s |  86 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (20/88): libxml2-2.9.7-13.el8_6.1.x86_64.rpm     19 MB/s | 696 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (21/88): glibc-gconv-extra-2.28-189.5.el8_6.x86  24 MB/s | 1.5 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (22/88): sssd-nfs-idmap-2.6.2-4.el8_6.1.x86_64. 8.3 MB/s | 121 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (23/88): selinux-policy-targeted-3.14.3-95.el8_  21 MB/s |  15 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (24/88): dracut-squash-049-202.git20220511.el8_ 4.9 MB/s |  62 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (25/88): grub2-tools-2.02-123.el8_6.8.x86_64.rp  10 MB/s | 2.0 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (26/88): python3-hawkey-0.63.0-8.2.el8_6.x86_64 7.1 MB/s | 117 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (27/88): dracut-network-049-202.git20220511.el8 6.9 MB/s | 109 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (28/88): microcode_ctl-20220207-1.20220510.1.el  28 MB/s | 5.8 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (29/88): dracut-config-generic-049-202.git20220 5.0 MB/s |  60 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (30/88): systemd-pam-239-58.el8_6.7.x86_64.rpm   14 MB/s | 484 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (31/88): glibc-all-langpacks-2.28-189.5.el8_6.x  21 MB/s |  25 MB     00:01[0m
+[0;32m    amazon-ebs.httpd: (32/88): dbus-common-1.12.8-18.el8_6.1.noarch.r 205 kB/s |  46 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (33/88): sssd-client-2.6.2-4.el8_6.1.x86_64.rpm  14 MB/s | 227 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (34/88): dbus-1.12.8-18.el8_6.1.x86_64.rpm      3.7 MB/s |  42 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (35/88): grub2-tools-extra-2.02-123.el8_6.8.x86  21 MB/s | 1.1 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (36/88): python3-libs-3.6.8-47.el8_6.x86_64.rpm  15 MB/s | 7.8 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (37/88): libsss_autofs-2.6.2-4.el8_6.1.x86_64.r 1.6 MB/s | 121 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (38/88): platform-python-3.6.8-47.el8_6.x86_64. 7.8 MB/s |  86 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (39/88): libsss_idmap-2.6.2-4.el8_6.1.x86_64.rp 9.3 MB/s | 124 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (40/88): sssd-kcm-2.6.2-4.el8_6.1.x86_64.rpm     14 MB/s | 253 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (41/88): initscripts-10.00.17-1.el8_6.2.x86_64.  14 MB/s | 340 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (42/88): NetworkManager-libnm-1.36.0-7.el8_6.x8  11 MB/s | 1.8 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (43/88): libsss_nss_idmap-2.6.2-4.el8_6.1.x86_6 9.0 MB/s | 131 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (44/88): python3-libdnf-0.63.0-8.2.el8_6.x86_64  12 MB/s | 778 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (45/88): libgcc-8.5.0-10.1.el8_6.x86_64.rpm     4.5 MB/s |  80 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (46/88): NetworkManager-1.36.0-7.el8_6.x86_64.r  23 MB/s | 2.3 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (47/88): systemd-udev-239-58.el8_6.7.x86_64.rpm  21 MB/s | 1.6 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (48/88): gnupg2-2.2.20-3.el8_6.x86_64.rpm        21 MB/s | 2.4 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (49/88): ca-certificates-2022.2.54-80.2.el8_6.n 9.9 MB/s | 921 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (50/88): pcre2-10.32-3.el8_6.x86_64.rpm         7.1 MB/s | 247 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (51/88): openssl-1.1.1k-7.el8_6.x86_64.rpm      8.3 MB/s | 709 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (52/88): tzdata-2022c-1.el8.noarch.rpm           18 MB/s | 471 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (53/88): grub2-pc-modules-2.02-123.el8_6.8.noar  15 MB/s | 920 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (54/88): libgcrypt-1.8.5-7.el8_6.x86_64.rpm     9.3 MB/s | 463 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (55/88): systemd-libs-239-58.el8_6.7.x86_64.rpm  28 MB/s | 1.1 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (56/88): sssd-common-2.6.2-4.el8_6.1.x86_64.rpm  18 MB/s | 1.6 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (57/88): libcurl-7.61.1-22.el8_6.4.x86_64.rpm   7.7 MB/s | 302 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (58/88): NetworkManager-team-1.36.0-7.el8_6.x86  11 MB/s | 153 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (59/88): pam-1.3.1-16.el8_6.1.x86_64.rpm         24 MB/s | 740 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (60/88): openssl-libs-1.1.1k-7.el8_6.x86_64.rpm  26 MB/s | 1.5 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (61/88): libsss_certmap-2.6.2-4.el8_6.1.x86_64. 6.2 MB/s | 165 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (62/88): systemd-239-58.el8_6.7.x86_64.rpm       21 MB/s | 3.6 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (63/88): NetworkManager-tui-1.36.0-7.el8_6.x86_ 6.2 MB/s | 346 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (64/88): dracut-049-202.git20220511.el8_6.x86_6  21 MB/s | 376 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (65/88): kpartx-0.8.4-22.el8_6.1.x86_64.rpm     6.9 MB/s | 115 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (66/88): bash-4.4.20-4.el8_6.x86_64.rpm          16 MB/s | 1.5 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (67/88): grub2-tools-minimal-2.02-123.el8_6.8.x 6.5 MB/s | 211 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (68/88): device-mapper-1.02.181-3.el8_6.2.x86_6  14 MB/s | 377 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (69/88): iproute-5.15.0-4.el8_6.1.x86_64.rpm     18 MB/s | 798 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (70/88): vim-minimal-8.0.1763-19.el8_6.4.x86_64  13 MB/s | 575 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (71/88): dracut-config-rescue-049-202.git202205 3.0 MB/s |  61 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (72/88): tuned-2.18.0-2.el8_6.1.noarch.rpm       17 MB/s | 316 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (73/88): expat-2.2.5-8.el8_6.2.x86_64.rpm       6.3 MB/s | 113 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (74/88): libsss_sudo-2.6.2-4.el8_6.1.x86_64.rpm 9.1 MB/s | 120 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (75/88): device-mapper-libs-1.02.181-3.el8_6.2.  17 MB/s | 410 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (76/88): grub2-common-2.02-123.el8_6.8.noarch.r  21 MB/s | 893 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (77/88): python3-perf-4.18.0-372.26.1.el8_6.x86  26 MB/s | 8.2 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (78/88): python3-libxml2-2.9.7-13.el8_6.1.x86_6 8.5 MB/s | 237 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (79/88): gnupg2-smime-2.2.20-3.el8_6.x86_64.rpm 9.7 MB/s | 283 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (80/88): libstdc++-8.5.0-10.1.el8_6.x86_64.rpm   18 MB/s | 454 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (81/88): kernel-tools-4.18.0-372.26.1.el8_6.x86  25 MB/s | 8.3 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (82/88): libgomp-8.5.0-10.1.el8_6.x86_64.rpm    2.0 MB/s | 207 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (83/88): dbus-daemon-1.12.8-18.el8_6.1.x86_64.r  12 MB/s | 240 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (84/88): selinux-policy-3.14.3-95.el8_6.4.noarc  24 MB/s | 648 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (85/88): libdnf-0.63.0-8.2.el8_6.x86_64.rpm      20 MB/s | 706 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (86/88): kernel-tools-libs-4.18.0-372.26.1.el8_  20 MB/s | 8.1 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: (87/88): rsync-3.1.3-14.el8_6.3.x86_64.rpm      3.9 MB/s | 409 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (88/88): rh-amazon-rhui-client-4.0.4-1.el8.noar 387 kB/s |  39 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: --------------------------------------------------------------------------------[0m
+[0;32m    amazon-ebs.httpd: Total                                            55 MB/s | 214 MB     00:03[0m
+[0;32m    amazon-ebs.httpd: Running transaction check[0m
+[0;32m    amazon-ebs.httpd: Transaction check succeeded.[0m
+[0;32m    amazon-ebs.httpd: Running transaction test[0m
+[0;32m    amazon-ebs.httpd: Transaction test succeeded.[0m
+[0;32m    amazon-ebs.httpd: Running transaction[0m
+[0;32m    amazon-ebs.httpd:   Preparing        :                                                        1/1[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libgcc-8.5.0-10.1.el8_6.x86_64                         1/1[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libgcc-8.5.0-10.1.el8_6.x86_64                       1/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libgcc-8.5.0-10.1.el8_6.x86_64                       1/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : tzdata-2022c-1.el8.noarch                            2/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : glibc-langpack-en-2.28-189.5.el8_6.x86_64            3/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : glibc-all-langpacks-2.28-189.5.el8_6.x86_64          4/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : glibc-gconv-extra-2.28-189.5.el8_6.x86_64            5/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: glibc-gconv-extra-2.28-189.5.el8_6.x86_64            5/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : glibc-common-2.28-189.5.el8_6.x86_64                 6/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: glibc-2.28-189.5.el8_6.x86_64                        7/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : glibc-2.28-189.5.el8_6.x86_64                        7/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: glibc-2.28-189.5.el8_6.x86_64                        7/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : bash-4.4.20-4.el8_6.x86_64                           8/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: bash-4.4.20-4.el8_6.x86_64                           8/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : xz-libs-5.2.4-4.el8_6.x86_64                         9/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : grub2-common-1:2.02-123.el8_6.8.noarch              10/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : pam-1.3.1-16.el8_6.1.x86_64                         11/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: pam-1.3.1-16.el8_6.1.x86_64                         11/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libgcrypt-1.8.5-7.el8_6.x86_64                      12/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libgcrypt-1.8.5-7.el8_6.x86_64                      12/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : systemd-libs-239-58.el8_6.7.x86_64                  13/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: systemd-libs-239-58.el8_6.7.x86_64                  13/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : dbus-libs-1:1.12.8-18.el8_6.1.x86_64                14/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: dbus-libs-1:1.12.8-18.el8_6.1.x86_64                14/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : NetworkManager-libnm-1:1.36.0-7.el8_6.x86_64        15/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: NetworkManager-libnm-1:1.36.0-7.el8_6.x86_64        15/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : iproute-5.15.0-4.el8_6.1.x86_64                     16/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : pcre2-10.32-3.el8_6.x86_64                          17/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libstdc++-8.5.0-10.1.el8_6.x86_64                   18/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libstdc++-8.5.0-10.1.el8_6.x86_64                   18/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : gnupg2-2.2.20-3.el8_6.x86_64                        19/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : gnupg2-smime-2.2.20-3.el8_6.x86_64                  20/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libsss_idmap-2.6.2-4.el8_6.1.x86_64                 21/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libsss_idmap-2.6.2-4.el8_6.1.x86_64                 21/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : expat-2.2.5-8.el8_6.2.x86_64                        22/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : dbus-tools-1:1.12.8-18.el8_6.1.x86_64               23/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : grub2-pc-modules-1:2.02-123.el8_6.8.noarch          24/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : xz-5.2.4-4.el8_6.x86_64                             25/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libxml2-2.9.7-13.el8_6.1.x86_64                     26/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: ca-certificates-2022.2.54-80.2.el8_6.noarch         27/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : ca-certificates-2022.2.54-80.2.el8_6.noarch         27/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: ca-certificates-2022.2.54-80.2.el8_6.noarch         27/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : openssl-libs-1:1.1.1k-7.el8_6.x86_64                28/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: openssl-libs-1:1.1.1k-7.el8_6.x86_64                28/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : systemd-pam-239-58.el8_6.7.x86_64                   29/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : dbus-common-1:1.12.8-18.el8_6.1.noarch              30/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: dbus-daemon-1:1.12.8-18.el8_6.1.x86_64              31/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : dbus-daemon-1:1.12.8-18.el8_6.1.x86_64              31/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: dbus-daemon-1:1.12.8-18.el8_6.1.x86_64              31/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: systemd-239-58.el8_6.7.x86_64                       32/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : systemd-239-58.el8_6.7.x86_64                       32/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: systemd-239-58.el8_6.7.x86_64                       32/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : dbus-1:1.12.8-18.el8_6.1.x86_64                     33/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : platform-python-3.6.8-47.el8_6.x86_64               34/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: platform-python-3.6.8-47.el8_6.x86_64               34/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : python3-libs-3.6.8-47.el8_6.x86_64                  35/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libcurl-7.61.1-22.el8_6.4.x86_64                    36/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : systemd-udev-239-58.el8_6.7.x86_64                  37/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: systemd-udev-239-58.el8_6.7.x86_64                  37/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: NetworkManager-1:1.36.0-7.el8_6.x86_64              38/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : NetworkManager-1:1.36.0-7.el8_6.x86_64              38/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: NetworkManager-1:1.36.0-7.el8_6.x86_64              38/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libdnf-0.63.0-8.2.el8_6.x86_64                      39/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : python3-libdnf-0.63.0-8.2.el8_6.x86_64              40/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : python3-perf-4.18.0-372.26.1.el8_6.x86_64           41/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : insights-client-3.1.7-7.el8_6.noarch                42/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: insights-client-3.1.7-7.el8_6.noarch                42/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : device-mapper-libs-8:1.02.181-3.el8_6.2.x86_64      43/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : device-mapper-8:1.02.181-3.el8_6.2.x86_64           44/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : grub2-tools-minimal-1:2.02-123.el8_6.8.x86_64       45/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : grub2-tools-extra-1:2.02-123.el8_6.8.x86_64         46/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : kpartx-0.8.4-22.el8_6.1.x86_64                      47/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : dracut-049-202.git20220511.el8_6.x86_64             48/172[0m
+[0;32m    amazon-ebs.httpd:   Installing       : kernel-core-4.18.0-372.26.1.el8_6.x86_64            49/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: kernel-core-4.18.0-372.26.1.el8_6.x86_64            49/172[0m
+[0;32m    amazon-ebs.httpd:   Installing       : kernel-modules-4.18.0-372.26.1.el8_6.x86_64         50/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: kernel-modules-4.18.0-372.26.1.el8_6.x86_64         50/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: grub2-tools-1:2.02-123.el8_6.8.x86_64               51/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : grub2-tools-1:2.02-123.el8_6.8.x86_64               51/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: grub2-tools-1:2.02-123.el8_6.8.x86_64               51/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : openssl-1:1.1.1k-7.el8_6.x86_64                     52/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libsss_certmap-2.6.2-4.el8_6.1.x86_64               53/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libsss_certmap-2.6.2-4.el8_6.1.x86_64               53/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : kernel-tools-libs-4.18.0-372.26.1.el8_6.x86_64      54/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: kernel-tools-libs-4.18.0-372.26.1.el8_6.x86_64      54/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : kernel-tools-4.18.0-372.26.1.el8_6.x86_64           55/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : selinux-policy-3.14.3-95.el8_6.4.noarch             56/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: selinux-policy-3.14.3-95.el8_6.4.noarch             56/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : sssd-nfs-idmap-2.6.2-4.el8_6.1.x86_64               57/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libsss_autofs-2.6.2-4.el8_6.1.x86_64                58/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libsss_nss_idmap-2.6.2-4.el8_6.1.x86_64             59/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libsss_nss_idmap-2.6.2-4.el8_6.1.x86_64             59/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : sssd-client-2.6.2-4.el8_6.1.x86_64                  60/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: sssd-client-2.6.2-4.el8_6.1.x86_64                  60/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libsss_sudo-2.6.2-4.el8_6.1.x86_64                  61/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libsss_sudo-2.6.2-4.el8_6.1.x86_64                  61/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: sssd-common-2.6.2-4.el8_6.1.x86_64                  62/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : sssd-common-2.6.2-4.el8_6.1.x86_64                  62/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: sssd-common-2.6.2-4.el8_6.1.x86_64                  62/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : sssd-kcm-2.6.2-4.el8_6.1.x86_64                     63/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: sssd-kcm-2.6.2-4.el8_6.1.x86_64                     63/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: selinux-policy-targeted-3.14.3-95.el8_6.4.noarch    64/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : selinux-policy-targeted-3.14.3-95.el8_6.4.noarch    64/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: selinux-policy-targeted-3.14.3-95.el8_6.4.noarch    64/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : tuned-2.18.0-2.el8_6.1.noarch                       65/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: tuned-2.18.0-2.el8_6.1.noarch                       65/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : cloud-init-21.1-15.el8_6.3.noarch                   66/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: cloud-init-21.1-15.el8_6.3.noarch                   66/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : grub2-pc-1:2.02-123.el8_6.8.x86_64                  67/172[0m
+[0;32m    amazon-ebs.httpd:   Installing       : kernel-4.18.0-372.26.1.el8_6.x86_64                 68/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : dracut-squash-049-202.git20220511.el8_6.x86_64      69/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : dracut-network-049-202.git20220511.el8_6.x86_64     70/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : dracut-config-generic-049-202.git20220511.el8_6.    71/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : dracut-config-rescue-049-202.git20220511.el8_6.x    72/172[0m
+[0;32m    amazon-ebs.httpd:   Installing       : grub2-tools-efi-1:2.02-123.el8_6.8.x86_64           73/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : rhc-1:0.2.1-9.el8_6.x86_64                          74/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : python3-hawkey-0.63.0-8.2.el8_6.x86_64              75/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : NetworkManager-cloud-setup-1:1.36.0-7.el8_6.x86_    76/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: NetworkManager-cloud-setup-1:1.36.0-7.el8_6.x86_    76/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : NetworkManager-team-1:1.36.0-7.el8_6.x86_64         77/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : NetworkManager-tui-1:1.36.0-7.el8_6.x86_64          78/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : rsyslog-8.2102.0-7.el8_6.1.x86_64                   79/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: rsyslog-8.2102.0-7.el8_6.1.x86_64                   79/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : curl-7.61.1-22.el8_6.4.x86_64                       80/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : python3-libxml2-2.9.7-13.el8_6.1.x86_64             81/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : rh-amazon-rhui-client-4.0.4-1.el8.noarch            82/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: rh-amazon-rhui-client-4.0.4-1.el8.noarch            82/172[0m
+[0;32m    amazon-ebs.httpd: [INFO:choose_repo] choose_repo:33 2022-09-18 13:18:16,821: Enabling binary repos in redhat-rhui.repo[0m
+[0;32m    amazon-ebs.httpd: [INFO:choose_repo] choose_repo:54 2022-09-18 13:18:16,823: Enabling client config repo[0m
+[0;32m    amazon-ebs.httpd: [INFO:choose_repo] choose_repo:62 2022-09-18 13:18:16,823: Executing [sed -i 's/enabled=0/enabled=1/' /etc/yum.repos.d/redhat-rhui-client-config.repo][0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : qemu-guest-agent-15:6.2.0-11.module+el8.6.0+1651    83/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: qemu-guest-agent-15:6.2.0-11.module+el8.6.0+1651    83/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : microcode_ctl-4:20220207-1.20220510.1.el8_6.x86_    84/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: microcode_ctl-4:20220207-1.20220510.1.el8_6.x86_    84/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : initscripts-10.00.17-1.el8_6.2.x86_64               85/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: initscripts-10.00.17-1.el8_6.2.x86_64               85/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : libgomp-8.5.0-10.1.el8_6.x86_64                     86/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libgomp-8.5.0-10.1.el8_6.x86_64                     86/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : vim-minimal-2:8.0.1763-19.el8_6.4.x86_64            87/172[0m
+[0;32m    amazon-ebs.httpd:   Upgrading        : rsync-3.1.3-14.el8_6.3.x86_64                       88/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: tuned-2.18.0-2.el8.noarch                           89/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : tuned-2.18.0-2.el8.noarch                           89/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: tuned-2.18.0-2.el8.noarch                           89/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: cloud-init-21.1-15.el8.noarch                       90/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : cloud-init-21.1-15.el8.noarch                       90/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: cloud-init-21.1-15.el8.noarch                       90/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : python3-libxml2-2.9.7-13.el8.x86_64                 91/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : NetworkManager-tui-1:1.36.0-4.el8.x86_64            92/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: rsyslog-8.2102.0-7.el8.x86_64                       93/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : rsyslog-8.2102.0-7.el8.x86_64                       93/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: rsyslog-8.2102.0-7.el8.x86_64                       93/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: NetworkManager-cloud-setup-1:1.36.0-4.el8.x86_64    94/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : NetworkManager-cloud-setup-1:1.36.0-4.el8.x86_64    94/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: NetworkManager-cloud-setup-1:1.36.0-4.el8.x86_64    94/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: qemu-guest-agent-15:6.2.0-11.module+el8.6.0+1470    95/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : qemu-guest-agent-15:6.2.0-11.module+el8.6.0+1470    95/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: qemu-guest-agent-15:6.2.0-11.module+el8.6.0+1470    95/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: sssd-kcm-2.6.2-4.el8_6.x86_64                       96/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : sssd-kcm-2.6.2-4.el8_6.x86_64                       96/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: sssd-kcm-2.6.2-4.el8_6.x86_64                       96/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: sssd-common-2.6.2-4.el8_6.x86_64                    97/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : sssd-common-2.6.2-4.el8_6.x86_64                    97/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: sssd-common-2.6.2-4.el8_6.x86_64                    97/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : device-mapper-8:1.02.181-3.el8.x86_64               98/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: sssd-client-2.6.2-4.el8_6.x86_64                    99/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : sssd-client-2.6.2-4.el8_6.x86_64                    99/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: sssd-client-2.6.2-4.el8_6.x86_64                    99/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : openssl-1:1.1.1k-6.el8_5.x86_64                    100/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : kernel-tools-4.18.0-372.9.1.el8.x86_64             101/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : python3-hawkey-0.63.0-8.el8.x86_64                 102/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : python3-libdnf-0.63.0-8.el8.x86_64                 103/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libdnf-0.63.0-8.el8.x86_64                         104/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libstdc++-8.5.0-10.el8.x86_64                      105/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libstdc++-8.5.0-10.el8.x86_64                      105/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libxml2-2.9.7-13.el8.x86_64                        106/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libgomp-8.5.0-10.el8.x86_64                        107/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libgomp-8.5.0-10.el8.x86_64                        107/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libgomp-8.5.0-10.el8.x86_64                        107/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libsss_nss_idmap-2.6.2-4.el8_6.x86_64              108/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libsss_nss_idmap-2.6.2-4.el8_6.x86_64              108/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: initscripts-10.00.15-1.el8.x86_64                  109/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : initscripts-10.00.15-1.el8.x86_64                  109/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: initscripts-10.00.15-1.el8.x86_64                  109/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : python3-perf-4.18.0-372.9.1.el8.x86_64             110/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : python3-libs-3.6.8-45.el8.x86_64                   111/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : curl-7.61.1-22.el8.x86_64                          112/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libsss_certmap-2.6.2-4.el8_6.x86_64                113/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libsss_certmap-2.6.2-4.el8_6.x86_64                113/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : rsync-3.1.3-14.el8.x86_64                          114/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libsss_idmap-2.6.2-4.el8_6.x86_64                  115/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libsss_idmap-2.6.2-4.el8_6.x86_64                  115/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libsss_sudo-2.6.2-4.el8_6.x86_64                   116/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libsss_sudo-2.6.2-4.el8_6.x86_64                   116/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : vim-minimal-2:8.0.1763-16.el8_5.13.x86_64          117/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : NetworkManager-team-1:1.36.0-4.el8.x86_64          118/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : sssd-nfs-idmap-2.6.2-4.el8_6.x86_64                119/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : rhc-1:0.2.1-7.el8.x86_64                           120/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: insights-client-3.1.7-5.el8.noarch                 121/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : insights-client-3.1.7-5.el8.noarch                 121/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: insights-client-3.1.7-5.el8.noarch                 121/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: microcode_ctl-4:20220207-1.el8.x86_64              122/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : microcode_ctl-4:20220207-1.el8.x86_64              122/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: microcode_ctl-4:20220207-1.el8.x86_64              122/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : dracut-network-049-201.git20220131.el8.x86_64      123/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : grub2-pc-1:2.02-123.el8.x86_64                     124/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : selinux-policy-targeted-3.14.3-95.el8.noarch       125/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: selinux-policy-targeted-3.14.3-95.el8.noarch       125/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: rh-amazon-rhui-client-4.0.3-1.el8.noarch           126/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : rh-amazon-rhui-client-4.0.3-1.el8.noarch           126/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : selinux-policy-3.14.3-95.el8.noarch                127/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: selinux-policy-3.14.3-95.el8.noarch                127/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : dracut-config-rescue-049-201.git20220131.el8.x86   128/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : dracut-squash-049-201.git20220131.el8.x86_64       129/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : grub2-pc-modules-1:2.02-123.el8.noarch             130/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : dracut-config-generic-049-201.git20220131.el8.x8   131/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: NetworkManager-1:1.36.0-4.el8.x86_64               132/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : NetworkManager-1:1.36.0-4.el8.x86_64               132/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: NetworkManager-1:1.36.0-4.el8.x86_64               132/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : gnupg2-2.2.20-2.el8.x86_64                         133/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : NetworkManager-libnm-1:1.36.0-4.el8.x86_64         134/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: NetworkManager-libnm-1:1.36.0-4.el8.x86_64         134/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : iproute-5.15.0-4.el8.x86_64                        135/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libcurl-7.61.1-22.el8.x86_64                       136/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: grub2-tools-1:2.02-123.el8.x86_64                  137/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : grub2-tools-1:2.02-123.el8.x86_64                  137/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : dracut-049-201.git20220131.el8.x86_64              138/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : systemd-udev-239-58.el8.x86_64                     139/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: systemd-udev-239-58.el8.x86_64                     139/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: dbus-daemon-1:1.12.8-18.el8.x86_64                 140/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : dbus-daemon-1:1.12.8-18.el8.x86_64                 140/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: dbus-daemon-1:1.12.8-18.el8.x86_64                 140/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : dbus-common-1:1.12.8-18.el8.noarch                 141/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : dbus-1:1.12.8-18.el8.x86_64                        142/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : systemd-pam-239-58.el8.x86_64                      143/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: systemd-239-58.el8.x86_64                          144/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : systemd-239-58.el8.x86_64                          144/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : pam-1.3.1-16.el8.x86_64                            145/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: pam-1.3.1-16.el8.x86_64                            145/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : xz-5.2.4-3.el8.x86_64                              146/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : dbus-tools-1:1.12.8-18.el8.x86_64                  147/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : dbus-libs-1:1.12.8-18.el8.x86_64                   148/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: dbus-libs-1:1.12.8-18.el8.x86_64                   148/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : gnupg2-smime-2.2.20-2.el8.x86_64                   149/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : grub2-tools-extra-1:2.02-123.el8.x86_64            150/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : grub2-tools-minimal-1:2.02-123.el8.x86_64          151/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : platform-python-3.6.8-45.el8.x86_64                152/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: platform-python-3.6.8-45.el8.x86_64                152/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : openssl-libs-1:1.1.1k-6.el8_5.x86_64               153/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: openssl-libs-1:1.1.1k-6.el8_5.x86_64               153/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : kpartx-0.8.4-22.el8.x86_64                         154/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : device-mapper-libs-8:1.02.181-3.el8.x86_64         155/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : systemd-libs-239-58.el8.x86_64                     156/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : xz-libs-5.2.4-3.el8.x86_64                         157/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libgcrypt-1.8.5-6.el8.x86_64                       158/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libgcrypt-1.8.5-6.el8.x86_64                       158/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : pcre2-10.32-2.el8.x86_64                           159/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : expat-2.2.5-8.el8.x86_64                           160/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : kernel-tools-libs-4.18.0-372.9.1.el8.x86_64        161/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: kernel-tools-libs-4.18.0-372.9.1.el8.x86_64        161/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libsss_autofs-2.6.2-4.el8_6.x86_64                 162/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : ca-certificates-2021.2.50-80.0.el8_4.noarch        163/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : grub2-common-1:2.02-123.el8.noarch                 164/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : glibc-gconv-extra-2.28-189.1.el8.x86_64            165/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: glibc-gconv-extra-2.28-189.1.el8.x86_64            165/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : glibc-all-langpacks-2.28-189.1.el8.x86_64          166/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: glibc-all-langpacks-2.28-189.1.el8.x86_64          166/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : bash-4.4.20-3.el8.x86_64                           167/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: bash-4.4.20-3.el8.x86_64                           167/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : glibc-2.28-189.1.el8.x86_64                        168/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : glibc-langpack-en-2.28-189.1.el8.x86_64            169/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : glibc-common-2.28-189.1.el8.x86_64                 170/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : tzdata-2022a-1.el8.noarch                          171/172[0m
+[0;32m    amazon-ebs.httpd:   Cleanup          : libgcc-8.5.0-10.el8.x86_64                         172/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libgcc-8.5.0-10.el8.x86_64                         172/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: glibc-all-langpacks-2.28-189.5.el8_6.x86_64        172/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: ca-certificates-2022.2.54-80.2.el8_6.noarch        172/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: kernel-core-4.18.0-372.26.1.el8_6.x86_64           172/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: sssd-common-2.6.2-4.el8_6.1.x86_64                 172/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: tuned-2.18.0-2.el8_6.1.noarch                      172/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: microcode_ctl-4:20220207-1.20220510.1.el8_6.x86_   172/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: libgcc-8.5.0-10.el8.x86_64                         172/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: glibc-common-2.28-189.5.el8_6.x86_64               172/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: systemd-239-58.el8_6.7.x86_64                      172/172[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: systemd-udev-239-58.el8_6.7.x86_64                 172/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-tools-efi-1:2.02-123.el8_6.8.x86_64            1/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : kernel-modules-4.18.0-372.26.1.el8_6.x86_64          2/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : kernel-4.18.0-372.26.1.el8_6.x86_64                  3/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : kernel-core-4.18.0-372.26.1.el8_6.x86_64             4/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : rhc-1:0.2.1-9.el8_6.x86_64                           5/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : rhc-1:0.2.1-7.el8.x86_64                             6/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : cloud-init-21.1-15.el8_6.3.noarch                    7/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : cloud-init-21.1-15.el8.noarch                        8/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : NetworkManager-cloud-setup-1:1.36.0-7.el8_6.x86_     9/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : NetworkManager-cloud-setup-1:1.36.0-4.el8.x86_64    10/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : rsyslog-8.2102.0-7.el8_6.1.x86_64                   11/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : rsyslog-8.2102.0-7.el8.x86_64                       12/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : insights-client-3.1.7-7.el8_6.noarch                13/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : insights-client-3.1.7-5.el8.noarch                  14/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : qemu-guest-agent-15:6.2.0-11.module+el8.6.0+1651    15/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : qemu-guest-agent-15:6.2.0-11.module+el8.6.0+1470    16/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : glibc-2.28-189.5.el8_6.x86_64                       17/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : glibc-2.28-189.1.el8.x86_64                         18/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : glibc-common-2.28-189.5.el8_6.x86_64                19/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : glibc-common-2.28-189.1.el8.x86_64                  20/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : glibc-langpack-en-2.28-189.5.el8_6.x86_64           21/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : glibc-langpack-en-2.28-189.1.el8.x86_64             22/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : xz-libs-5.2.4-4.el8_6.x86_64                        23/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : xz-libs-5.2.4-3.el8.x86_64                          24/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : xz-5.2.4-4.el8_6.x86_64                             25/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : xz-5.2.4-3.el8.x86_64                               26/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : glibc-all-langpacks-2.28-189.5.el8_6.x86_64         27/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : glibc-all-langpacks-2.28-189.1.el8.x86_64           28/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : selinux-policy-targeted-3.14.3-95.el8_6.4.noarch    29/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : selinux-policy-targeted-3.14.3-95.el8.noarch        30/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-pc-1:2.02-123.el8_6.8.x86_64                  31/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-pc-1:2.02-123.el8.x86_64                      32/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dbus-libs-1:1.12.8-18.el8_6.1.x86_64                33/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dbus-libs-1:1.12.8-18.el8.x86_64                    34/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : curl-7.61.1-22.el8_6.4.x86_64                       35/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : curl-7.61.1-22.el8.x86_64                           36/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dbus-tools-1:1.12.8-18.el8_6.1.x86_64               37/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dbus-tools-1:1.12.8-18.el8.x86_64                   38/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libxml2-2.9.7-13.el8_6.1.x86_64                     39/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libxml2-2.9.7-13.el8.x86_64                         40/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : glibc-gconv-extra-2.28-189.5.el8_6.x86_64           41/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : glibc-gconv-extra-2.28-189.1.el8.x86_64             42/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : sssd-nfs-idmap-2.6.2-4.el8_6.1.x86_64               43/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : sssd-nfs-idmap-2.6.2-4.el8_6.x86_64                 44/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-tools-1:2.02-123.el8_6.8.x86_64               45/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-tools-1:2.02-123.el8.x86_64                   46/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dracut-squash-049-202.git20220511.el8_6.x86_64      47/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dracut-squash-049-201.git20220131.el8.x86_64        48/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : microcode_ctl-4:20220207-1.20220510.1.el8_6.x86_    49/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : microcode_ctl-4:20220207-1.el8.x86_64               50/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : python3-hawkey-0.63.0-8.2.el8_6.x86_64              51/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : python3-hawkey-0.63.0-8.el8.x86_64                  52/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dracut-network-049-202.git20220511.el8_6.x86_64     53/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dracut-network-049-201.git20220131.el8.x86_64       54/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : python3-libs-3.6.8-47.el8_6.x86_64                  55/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : python3-libs-3.6.8-45.el8.x86_64                    56/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dracut-config-generic-049-202.git20220511.el8_6.    57/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dracut-config-generic-049-201.git20220131.el8.x8    58/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : systemd-pam-239-58.el8_6.7.x86_64                   59/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : systemd-pam-239-58.el8.x86_64                       60/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dbus-common-1:1.12.8-18.el8_6.1.noarch              61/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dbus-common-1:1.12.8-18.el8.noarch                  62/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : sssd-client-2.6.2-4.el8_6.1.x86_64                  63/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : sssd-client-2.6.2-4.el8_6.x86_64                    64/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-tools-extra-1:2.02-123.el8_6.8.x86_64         65/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-tools-extra-1:2.02-123.el8.x86_64             66/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dbus-1:1.12.8-18.el8_6.1.x86_64                     67/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dbus-1:1.12.8-18.el8.x86_64                         68/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : NetworkManager-libnm-1:1.36.0-7.el8_6.x86_64        69/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : NetworkManager-libnm-1:1.36.0-4.el8.x86_64          70/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libsss_autofs-2.6.2-4.el8_6.1.x86_64                71/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libsss_autofs-2.6.2-4.el8_6.x86_64                  72/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : platform-python-3.6.8-47.el8_6.x86_64               73/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : platform-python-3.6.8-45.el8.x86_64                 74/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libsss_idmap-2.6.2-4.el8_6.1.x86_64                 75/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libsss_idmap-2.6.2-4.el8_6.x86_64                   76/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : sssd-kcm-2.6.2-4.el8_6.1.x86_64                     77/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : sssd-kcm-2.6.2-4.el8_6.x86_64                       78/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : initscripts-10.00.17-1.el8_6.2.x86_64               79/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : initscripts-10.00.15-1.el8.x86_64                   80/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : python3-libdnf-0.63.0-8.2.el8_6.x86_64              81/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : python3-libdnf-0.63.0-8.el8.x86_64                  82/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : NetworkManager-1:1.36.0-7.el8_6.x86_64              83/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : NetworkManager-1:1.36.0-4.el8.x86_64                84/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libsss_nss_idmap-2.6.2-4.el8_6.1.x86_64             85/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libsss_nss_idmap-2.6.2-4.el8_6.x86_64               86/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libgcc-8.5.0-10.1.el8_6.x86_64                      87/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libgcc-8.5.0-10.el8.x86_64                          88/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : gnupg2-2.2.20-3.el8_6.x86_64                        89/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : gnupg2-2.2.20-2.el8.x86_64                          90/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : systemd-udev-239-58.el8_6.7.x86_64                  91/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : systemd-udev-239-58.el8.x86_64                      92/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : ca-certificates-2022.2.54-80.2.el8_6.noarch         93/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : ca-certificates-2021.2.50-80.0.el8_4.noarch         94/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : openssl-1:1.1.1k-7.el8_6.x86_64                     95/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : openssl-1:1.1.1k-6.el8_5.x86_64                     96/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : pcre2-10.32-3.el8_6.x86_64                          97/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : pcre2-10.32-2.el8.x86_64                            98/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-pc-modules-1:2.02-123.el8_6.8.noarch          99/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-pc-modules-1:2.02-123.el8.noarch             100/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : tzdata-2022c-1.el8.noarch                          101/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : tzdata-2022a-1.el8.noarch                          102/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libgcrypt-1.8.5-7.el8_6.x86_64                     103/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libgcrypt-1.8.5-6.el8.x86_64                       104/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : sssd-common-2.6.2-4.el8_6.1.x86_64                 105/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : sssd-common-2.6.2-4.el8_6.x86_64                   106/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : systemd-libs-239-58.el8_6.7.x86_64                 107/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : systemd-libs-239-58.el8.x86_64                     108/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : systemd-239-58.el8_6.7.x86_64                      109/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : systemd-239-58.el8.x86_64                          110/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libcurl-7.61.1-22.el8_6.4.x86_64                   111/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libcurl-7.61.1-22.el8.x86_64                       112/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : NetworkManager-team-1:1.36.0-7.el8_6.x86_64        113/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : NetworkManager-team-1:1.36.0-4.el8.x86_64          114/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : openssl-libs-1:1.1.1k-7.el8_6.x86_64               115/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : openssl-libs-1:1.1.1k-6.el8_5.x86_64               116/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : pam-1.3.1-16.el8_6.1.x86_64                        117/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : pam-1.3.1-16.el8.x86_64                            118/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libsss_certmap-2.6.2-4.el8_6.1.x86_64              119/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libsss_certmap-2.6.2-4.el8_6.x86_64                120/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : NetworkManager-tui-1:1.36.0-7.el8_6.x86_64         121/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : NetworkManager-tui-1:1.36.0-4.el8.x86_64           122/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : bash-4.4.20-4.el8_6.x86_64                         123/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : bash-4.4.20-3.el8.x86_64                           124/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dracut-049-202.git20220511.el8_6.x86_64            125/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dracut-049-201.git20220131.el8.x86_64              126/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : python3-perf-4.18.0-372.26.1.el8_6.x86_64          127/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : python3-perf-4.18.0-372.9.1.el8.x86_64             128/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : kpartx-0.8.4-22.el8_6.1.x86_64                     129/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : kpartx-0.8.4-22.el8.x86_64                         130/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-tools-minimal-1:2.02-123.el8_6.8.x86_64      131/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-tools-minimal-1:2.02-123.el8.x86_64          132/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : device-mapper-8:1.02.181-3.el8_6.2.x86_64          133/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : device-mapper-8:1.02.181-3.el8.x86_64              134/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : iproute-5.15.0-4.el8_6.1.x86_64                    135/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : iproute-5.15.0-4.el8.x86_64                        136/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : vim-minimal-2:8.0.1763-19.el8_6.4.x86_64           137/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : vim-minimal-2:8.0.1763-16.el8_5.13.x86_64          138/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dracut-config-rescue-049-202.git20220511.el8_6.x   139/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dracut-config-rescue-049-201.git20220131.el8.x86   140/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : tuned-2.18.0-2.el8_6.1.noarch                      141/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : tuned-2.18.0-2.el8.noarch                          142/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : expat-2.2.5-8.el8_6.2.x86_64                       143/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : expat-2.2.5-8.el8.x86_64                           144/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libsss_sudo-2.6.2-4.el8_6.1.x86_64                 145/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libsss_sudo-2.6.2-4.el8_6.x86_64                   146/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : device-mapper-libs-8:1.02.181-3.el8_6.2.x86_64     147/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : device-mapper-libs-8:1.02.181-3.el8.x86_64         148/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : kernel-tools-4.18.0-372.26.1.el8_6.x86_64          149/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : kernel-tools-4.18.0-372.9.1.el8.x86_64             150/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-common-1:2.02-123.el8_6.8.noarch             151/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : grub2-common-1:2.02-123.el8.noarch                 152/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : kernel-tools-libs-4.18.0-372.26.1.el8_6.x86_64     153/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : kernel-tools-libs-4.18.0-372.9.1.el8.x86_64        154/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : python3-libxml2-2.9.7-13.el8_6.1.x86_64            155/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : python3-libxml2-2.9.7-13.el8.x86_64                156/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : gnupg2-smime-2.2.20-3.el8_6.x86_64                 157/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : gnupg2-smime-2.2.20-2.el8.x86_64                   158/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libstdc++-8.5.0-10.1.el8_6.x86_64                  159/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libstdc++-8.5.0-10.el8.x86_64                      160/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libgomp-8.5.0-10.1.el8_6.x86_64                    161/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libgomp-8.5.0-10.el8.x86_64                        162/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dbus-daemon-1:1.12.8-18.el8_6.1.x86_64             163/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : dbus-daemon-1:1.12.8-18.el8.x86_64                 164/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : selinux-policy-3.14.3-95.el8_6.4.noarch            165/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : selinux-policy-3.14.3-95.el8.noarch                166/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libdnf-0.63.0-8.2.el8_6.x86_64                     167/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : libdnf-0.63.0-8.el8.x86_64                         168/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : rsync-3.1.3-14.el8_6.3.x86_64                      169/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : rsync-3.1.3-14.el8.x86_64                          170/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : rh-amazon-rhui-client-4.0.4-1.el8.noarch           171/172[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : rh-amazon-rhui-client-4.0.3-1.el8.noarch           172/172[0m
+[0;32m    amazon-ebs.httpd: Installed products updated.[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: Upgraded:[0m
+[0;32m    amazon-ebs.httpd:   NetworkManager-1:1.36.0-7.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   NetworkManager-cloud-setup-1:1.36.0-7.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   NetworkManager-libnm-1:1.36.0-7.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   NetworkManager-team-1:1.36.0-7.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   NetworkManager-tui-1:1.36.0-7.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   bash-4.4.20-4.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   ca-certificates-2022.2.54-80.2.el8_6.noarch[0m
+[0;32m    amazon-ebs.httpd:   cloud-init-21.1-15.el8_6.3.noarch[0m
+[0;32m    amazon-ebs.httpd:   curl-7.61.1-22.el8_6.4.x86_64[0m
+[0;32m    amazon-ebs.httpd:   dbus-1:1.12.8-18.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   dbus-common-1:1.12.8-18.el8_6.1.noarch[0m
+[0;32m    amazon-ebs.httpd:   dbus-daemon-1:1.12.8-18.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   dbus-libs-1:1.12.8-18.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   dbus-tools-1:1.12.8-18.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   device-mapper-8:1.02.181-3.el8_6.2.x86_64[0m
+[0;32m    amazon-ebs.httpd:   device-mapper-libs-8:1.02.181-3.el8_6.2.x86_64[0m
+[0;32m    amazon-ebs.httpd:   dracut-049-202.git20220511.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   dracut-config-generic-049-202.git20220511.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   dracut-config-rescue-049-202.git20220511.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   dracut-network-049-202.git20220511.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   dracut-squash-049-202.git20220511.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   expat-2.2.5-8.el8_6.2.x86_64[0m
+[0;32m    amazon-ebs.httpd:   glibc-2.28-189.5.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   glibc-all-langpacks-2.28-189.5.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   glibc-common-2.28-189.5.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   glibc-gconv-extra-2.28-189.5.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   glibc-langpack-en-2.28-189.5.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   gnupg2-2.2.20-3.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   gnupg2-smime-2.2.20-3.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   grub2-common-1:2.02-123.el8_6.8.noarch[0m
+[0;32m    amazon-ebs.httpd:   grub2-pc-1:2.02-123.el8_6.8.x86_64[0m
+[0;32m    amazon-ebs.httpd:   grub2-pc-modules-1:2.02-123.el8_6.8.noarch[0m
+[0;32m    amazon-ebs.httpd:   grub2-tools-1:2.02-123.el8_6.8.x86_64[0m
+[0;32m    amazon-ebs.httpd:   grub2-tools-extra-1:2.02-123.el8_6.8.x86_64[0m
+[0;32m    amazon-ebs.httpd:   grub2-tools-minimal-1:2.02-123.el8_6.8.x86_64[0m
+[0;32m    amazon-ebs.httpd:   initscripts-10.00.17-1.el8_6.2.x86_64[0m
+[0;32m    amazon-ebs.httpd:   insights-client-3.1.7-7.el8_6.noarch[0m
+[0;32m    amazon-ebs.httpd:   iproute-5.15.0-4.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   kernel-tools-4.18.0-372.26.1.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   kernel-tools-libs-4.18.0-372.26.1.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   kpartx-0.8.4-22.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libcurl-7.61.1-22.el8_6.4.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libdnf-0.63.0-8.2.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libgcc-8.5.0-10.1.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libgcrypt-1.8.5-7.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libgomp-8.5.0-10.1.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libsss_autofs-2.6.2-4.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libsss_certmap-2.6.2-4.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libsss_idmap-2.6.2-4.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libsss_nss_idmap-2.6.2-4.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libsss_sudo-2.6.2-4.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libstdc++-8.5.0-10.1.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   libxml2-2.9.7-13.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   microcode_ctl-4:20220207-1.20220510.1.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   openssl-1:1.1.1k-7.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   openssl-libs-1:1.1.1k-7.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   pam-1.3.1-16.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   pcre2-10.32-3.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   platform-python-3.6.8-47.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   python3-hawkey-0.63.0-8.2.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   python3-libdnf-0.63.0-8.2.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   python3-libs-3.6.8-47.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   python3-libxml2-2.9.7-13.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   python3-perf-4.18.0-372.26.1.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   qemu-guest-agent-15:6.2.0-11.module+el8.6.0+16516+f8cbd5fe.5.x86_64[0m
+[0;32m    amazon-ebs.httpd:   rh-amazon-rhui-client-4.0.4-1.el8.noarch[0m
+[0;32m    amazon-ebs.httpd:   rhc-1:0.2.1-9.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   rsync-3.1.3-14.el8_6.3.x86_64[0m
+[0;32m    amazon-ebs.httpd:   rsyslog-8.2102.0-7.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   selinux-policy-3.14.3-95.el8_6.4.noarch[0m
+[0;32m    amazon-ebs.httpd:   selinux-policy-targeted-3.14.3-95.el8_6.4.noarch[0m
+[0;32m    amazon-ebs.httpd:   sssd-client-2.6.2-4.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   sssd-common-2.6.2-4.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   sssd-kcm-2.6.2-4.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   sssd-nfs-idmap-2.6.2-4.el8_6.1.x86_64[0m
+[0;32m    amazon-ebs.httpd:   systemd-239-58.el8_6.7.x86_64[0m
+[0;32m    amazon-ebs.httpd:   systemd-libs-239-58.el8_6.7.x86_64[0m
+[0;32m    amazon-ebs.httpd:   systemd-pam-239-58.el8_6.7.x86_64[0m
+[0;32m    amazon-ebs.httpd:   systemd-udev-239-58.el8_6.7.x86_64[0m
+[0;32m    amazon-ebs.httpd:   tuned-2.18.0-2.el8_6.1.noarch[0m
+[0;32m    amazon-ebs.httpd:   tzdata-2022c-1.el8.noarch[0m
+[0;32m    amazon-ebs.httpd:   vim-minimal-2:8.0.1763-19.el8_6.4.x86_64[0m
+[0;32m    amazon-ebs.httpd:   xz-5.2.4-4.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   xz-libs-5.2.4-4.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd: Installed:[0m
+[0;32m    amazon-ebs.httpd:   grub2-tools-efi-1:2.02-123.el8_6.8.x86_64[0m
+[0;32m    amazon-ebs.httpd:   kernel-4.18.0-372.26.1.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   kernel-core-4.18.0-372.26.1.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:   kernel-modules-4.18.0-372.26.1.el8_6.x86_64[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: Complete![0m
+[0;32m    amazon-ebs.httpd: Updating Subscription Management repositories.[0m
+[0;32m    amazon-ebs.httpd: Unable to read consumer identity[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: This system is not registered with an entitlement server. You can use subscription-manager to register.[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: Red Hat Enterprise Linux 8 for x86_64 - AppStre  22 kB/s | 4.5 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: Red Hat Enterprise Linux 8 for x86_64 - BaseOS   77 kB/s | 4.1 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: Red Hat Ansible Engine 2 for RHEL 8 (RPMs) from  80 kB/s | 4.0 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: RHUI Client Configuration Server 8               38 kB/s | 2.0 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: Dependencies resolved.[0m
+[0;32m    amazon-ebs.httpd: =========================================================================================================[0m
+[0;32m    amazon-ebs.httpd:  Package              Arch    Version                                   Repository                   Size[0m
+[0;32m    amazon-ebs.httpd: =========================================================================================================[0m
+[0;32m    amazon-ebs.httpd: Installing:[0m
+[0;32m    amazon-ebs.httpd:  httpd                x86_64  2.4.37-47.module+el8.6.0+15654+427eba2e.2 rhel-8-appstream-rhui-rpms  1.4 M[0m
+[0;32m    amazon-ebs.httpd: Installing dependencies:[0m
+[0;32m    amazon-ebs.httpd:  apr                  x86_64  1.6.3-12.el8                              rhel-8-appstream-rhui-rpms  130 k[0m
+[0;32m    amazon-ebs.httpd:  apr-util             x86_64  1.6.1-6.el8                               rhel-8-appstream-rhui-rpms  105 k[0m
+[0;32m    amazon-ebs.httpd:  httpd-filesystem     noarch  2.4.37-47.module+el8.6.0+15654+427eba2e.2 rhel-8-appstream-rhui-rpms   41 k[0m
+[0;32m    amazon-ebs.httpd:  httpd-tools          x86_64  2.4.37-47.module+el8.6.0+15654+427eba2e.2 rhel-8-appstream-rhui-rpms  108 k[0m
+[0;32m    amazon-ebs.httpd:  mailcap              noarch  2.1.48-3.el8                              rhel-8-baseos-rhui-rpms      39 k[0m
+[0;32m    amazon-ebs.httpd:  mod_http2            x86_64  1.15.7-5.module+el8.6.0+13996+01710940    rhel-8-appstream-rhui-rpms  155 k[0m
+[0;32m    amazon-ebs.httpd:  redhat-logos-httpd   noarch  84.5-1.el8                                rhel-8-baseos-rhui-rpms      29 k[0m
+[0;32m    amazon-ebs.httpd: Installing weak dependencies:[0m
+[0;32m    amazon-ebs.httpd:  apr-util-bdb         x86_64  1.6.1-6.el8                               rhel-8-appstream-rhui-rpms   25 k[0m
+[0;32m    amazon-ebs.httpd:  apr-util-openssl     x86_64  1.6.1-6.el8                               rhel-8-appstream-rhui-rpms   27 k[0m
+[0;32m    amazon-ebs.httpd: Enabling module streams:[0m
+[0;32m    amazon-ebs.httpd:  httpd                        2.4[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: Transaction Summary[0m
+[0;32m    amazon-ebs.httpd: =========================================================================================================[0m
+[0;32m    amazon-ebs.httpd: Install  10 Packages[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: Total download size: 2.1 M[0m
+[0;32m    amazon-ebs.httpd: Installed size: 5.5 M[0m
+[0;32m    amazon-ebs.httpd: Downloading Packages:[0m
+[0;32m    amazon-ebs.httpd: (1/10): apr-util-bdb-1.6.1-6.el8.x86_64.rpm     523 kB/s |  25 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (2/10): apr-util-1.6.1-6.el8.x86_64.rpm         2.0 MB/s | 105 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (3/10): apr-util-openssl-1.6.1-6.el8.x86_64.rpm 496 kB/s |  27 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (4/10): mod_http2-1.15.7-5.module+el8.6.0+13996 8.7 MB/s | 155 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (5/10): apr-1.6.3-12.el8.x86_64.rpm             5.3 MB/s | 130 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (6/10): httpd-tools-2.4.37-47.module+el8.6.0+15 3.2 MB/s | 108 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (7/10): httpd-filesystem-2.4.37-47.module+el8.6 2.8 MB/s |  41 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (8/10): mailcap-2.1.48-3.el8.noarch.rpm         2.8 MB/s |  39 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (9/10): redhat-logos-httpd-84.5-1.el8.noarch.rp 2.2 MB/s |  29 kB     00:00[0m
+[0;32m    amazon-ebs.httpd: (10/10): httpd-2.4.37-47.module+el8.6.0+15654+4  28 MB/s | 1.4 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: --------------------------------------------------------------------------------[0m
+[0;32m    amazon-ebs.httpd: Total                                            13 MB/s | 2.1 MB     00:00[0m
+[0;32m    amazon-ebs.httpd: Running transaction check[0m
+[0;32m    amazon-ebs.httpd: Transaction check succeeded.[0m
+[0;32m    amazon-ebs.httpd: Running transaction test[0m
+[0;32m    amazon-ebs.httpd: Transaction test succeeded.[0m
+[0;32m    amazon-ebs.httpd: Running transaction[0m
+[0;32m    amazon-ebs.httpd:   Preparing        :                                                        1/1[0m
+[0;32m    amazon-ebs.httpd:   Installing       : apr-1.6.3-12.el8.x86_64                               1/10[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: apr-1.6.3-12.el8.x86_64                               1/10[0m
+[0;32m    amazon-ebs.httpd:   Installing       : apr-util-bdb-1.6.1-6.el8.x86_64                       2/10[0m
+[0;32m    amazon-ebs.httpd:   Installing       : apr-util-1.6.1-6.el8.x86_64                           3/10[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: apr-util-1.6.1-6.el8.x86_64                           3/10[0m
+[0;32m    amazon-ebs.httpd:   Installing       : apr-util-openssl-1.6.1-6.el8.x86_64                   4/10[0m
+[0;32m    amazon-ebs.httpd:   Installing       : httpd-tools-2.4.37-47.module+el8.6.0+15654+427eba2    5/10[0m
+[0;32m    amazon-ebs.httpd:   Installing       : redhat-logos-httpd-84.5-1.el8.noarch                  6/10[0m
+[0;32m    amazon-ebs.httpd:   Installing       : mailcap-2.1.48-3.el8.noarch                           7/10[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: httpd-filesystem-2.4.37-47.module+el8.6.0+15654+42    8/10[0m
+[0;32m    amazon-ebs.httpd:   Installing       : httpd-filesystem-2.4.37-47.module+el8.6.0+15654+42    8/10[0m
+[0;32m    amazon-ebs.httpd:   Installing       : mod_http2-1.15.7-5.module+el8.6.0+13996+01710940.x    9/10[0m
+[0;32m    amazon-ebs.httpd:   Installing       : httpd-2.4.37-47.module+el8.6.0+15654+427eba2e.2.x8   10/10[0m
+[0;32m    amazon-ebs.httpd:   Running scriptlet: httpd-2.4.37-47.module+el8.6.0+15654+427eba2e.2.x8   10/10[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : apr-util-openssl-1.6.1-6.el8.x86_64                   1/10[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : apr-util-bdb-1.6.1-6.el8.x86_64                       2/10[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : apr-util-1.6.1-6.el8.x86_64                           3/10[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : apr-1.6.3-12.el8.x86_64                               4/10[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : mod_http2-1.15.7-5.module+el8.6.0+13996+01710940.x    5/10[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : httpd-tools-2.4.37-47.module+el8.6.0+15654+427eba2    6/10[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : httpd-2.4.37-47.module+el8.6.0+15654+427eba2e.2.x8    7/10[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : httpd-filesystem-2.4.37-47.module+el8.6.0+15654+42    8/10[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : mailcap-2.1.48-3.el8.noarch                           9/10[0m
+[0;32m    amazon-ebs.httpd:   Verifying        : redhat-logos-httpd-84.5-1.el8.noarch                 10/10[0m
+[0;32m    amazon-ebs.httpd: Installed products updated.[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: Installed:[0m
+[0;32m    amazon-ebs.httpd:   apr-1.6.3-12.el8.x86_64[0m
+[0;32m    amazon-ebs.httpd:   apr-util-1.6.1-6.el8.x86_64[0m
+[0;32m    amazon-ebs.httpd:   apr-util-bdb-1.6.1-6.el8.x86_64[0m
+[0;32m    amazon-ebs.httpd:   apr-util-openssl-1.6.1-6.el8.x86_64[0m
+[0;32m    amazon-ebs.httpd:   httpd-2.4.37-47.module+el8.6.0+15654+427eba2e.2.x86_64[0m
+[0;32m    amazon-ebs.httpd:   httpd-filesystem-2.4.37-47.module+el8.6.0+15654+427eba2e.2.noarch[0m
+[0;32m    amazon-ebs.httpd:   httpd-tools-2.4.37-47.module+el8.6.0+15654+427eba2e.2.x86_64[0m
+[0;32m    amazon-ebs.httpd:   mailcap-2.1.48-3.el8.noarch[0m
+[0;32m    amazon-ebs.httpd:   mod_http2-1.15.7-5.module+el8.6.0+13996+01710940.x86_64[0m
+[0;32m    amazon-ebs.httpd:   redhat-logos-httpd-84.5-1.el8.noarch[0m
+[0;32m    amazon-ebs.httpd:[0m
+[0;32m    amazon-ebs.httpd: Complete![0m
+[1;32m==> amazon-ebs.httpd: Stopping the source instance...[0m
+[0;32m    amazon-ebs.httpd: Stopping instance[0m
+[1;32m==> amazon-ebs.httpd: Waiting for the instance to stop...[0m
+[1;32m==> amazon-ebs.httpd: Creating AMI my-image-httpd from instance i-08d360fa1518a562c[0m
+[0;32m    amazon-ebs.httpd: AMI: ami-0010853f759e560c1[0m
+[1;32m==> amazon-ebs.httpd: Waiting for AMI to become ready...[0m
+[1;32m==> amazon-ebs.httpd: Skipping Enable AMI deprecation...[0m
+[1;32m==> amazon-ebs.httpd: Adding tags to AMI (ami-0010853f759e560c1)...[0m
+[1;32m==> amazon-ebs.httpd: Tagging snapshot: snap-0b56743b80ddf5cd3[0m
+[1;32m==> amazon-ebs.httpd: Creating AMI tags[0m
+[0;32m    amazon-ebs.httpd: Adding tag: "Env": "development"[0m
+[0;32m    amazon-ebs.httpd: Adding tag: "Name": "my-image-httpd"[0m
+[1;32m==> amazon-ebs.httpd: Creating snapshot tags[0m
+[1;32m==> amazon-ebs.httpd: Terminating the source AWS instance...[0m
+[1;32m==> amazon-ebs.httpd: Cleaning up any extra volumes...[0m
+[1;32m==> amazon-ebs.httpd: No volumes to clean up, skipping[0m
+[1;32m==> amazon-ebs.httpd: Deleting temporary security group...[0m
+[1;32m==> amazon-ebs.httpd: Deleting temporary keypair...[0m
+[1;32m==> amazon-ebs.httpd: Running post-processor:  (type shell-local)[0m
+[1;32m==> amazon-ebs.httpd (shell-local): Running local shell script: /tmp/packer-shell1266800846[0m
+[0;32m    amazon-ebs.httpd (shell-local): Hello[0m
+[1;32mBuild 'amazon-ebs.httpd' finished after 11 minutes 29 seconds.[0m
+
+==> Wait completed after 11 minutes 29 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> amazon-ebs.httpd: AMIs were created:
+eu-central-1: ami-0010853f759e560c1
+
+--> amazon-ebs.httpd: AMIs were created:
+eu-central-1: ami-0010853f759e560c1
+
